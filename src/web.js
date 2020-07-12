@@ -86,6 +86,11 @@ type OptionsType = {
   findUserById: (id: number) => Object,
   viewEngine?: string,
   enableStatusMonitor?: boolean,
+  staticOptions: {
+    maxAge?: number,
+    etag?: boolean,
+    lastModified?: boolean,
+  },
 };
 
 const {
@@ -149,7 +154,12 @@ const httpServer = function httpServer(options: OptionsType) {
   }
 
   if (options.publicPath) {
-    app.use(express.static(options.publicPath, { maxAge: 31557600000 }));
+    app.use(
+      express.static(options.publicPath, {
+        ...{ maxAge: 31557600000 },
+        ...options.staticOptions,
+      })
+    );
   }
 
   app.use(flash());

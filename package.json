@@ -1,6 +1,6 @@
 {
-  "name": "distraught",
-  "version": "5.0.0",
+  "name": "@smartrent/distraught",
+  "version": "5.1.0",
   "description": "Web Server",
   "main": "dist/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/knledg/distraught"
+    "url": "https://github.com/smartrent/distraught.git"
   },
   "author": "jwdotjs",
   "license": "MIT",
@@ -95,5 +95,13 @@
       "**/*.{js}",
       "!dist/**/*"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/smartrent/distraught/issues"
+  },
+  "homepage": "https://github.com/smartrent/distraught#readme",
+  "directories": {
+    "example": "examples",
+    "test": "test"
   }
 }

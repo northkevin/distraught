@@ -1,3 +1,10 @@
+## [v5.1.0]
+> July 12, 2020
+
+### Feature updates
+
+- Exposes `staticOptions` support for [express.static](http://expressjs.com/en/4x/api.html#express.static) while maintaining previous defaults
+
 ## [v5.0.0]
 > September 27, 2019
 
