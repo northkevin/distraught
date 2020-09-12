@@ -109,6 +109,8 @@ const httpServer = function httpServer(options: OptionsType) {
 
   // $FlowBug
   const webserver = http.Server(app); // eslint-disable-line
+  webserver.keepAliveTimeout = 65000;
+  webserver.headersTimeout = 66000;
   const io = socketio(webserver);
 
   app.use(helmet());
