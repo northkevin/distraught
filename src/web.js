@@ -91,6 +91,8 @@ type OptionsType = {
     etag?: boolean,
     lastModified?: boolean,
   },
+  keepAliveTimeout?: number,
+  headersTimeout?: number,
 };
 
 const {
