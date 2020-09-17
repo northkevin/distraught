@@ -91,6 +91,8 @@ type OptionsType = {
     etag?: boolean,
     lastModified?: boolean,
   },
+  keepAliveTimeout?: number,
+  headersTimeout?: number,
 };
 
 const {
@@ -109,6 +111,8 @@ const httpServer = function httpServer(options: OptionsType) {
 
   // $FlowBug
   const webserver = http.Server(app); // eslint-disable-line
+  webserver.keepAliveTimeout = options.keepAliveTimeout || 65000;
+  webserver.headersTimeout = options.headersTimeout || 66000;
   const io = socketio(webserver);
 
   app.use(helmet());
