@@ -1,3 +1,11 @@
+## [v5.1.1]
+> Sept 17, 2020
+
+### Bugfixes
+
+- Web servers can now receive `keepAliveTimeout` and `headersTimeout` in options, but defaults are applied if these are not specified explicitly.
+
+
 ## [v5.1.0]
 > July 12, 2020
 
