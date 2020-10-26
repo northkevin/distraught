@@ -7,6 +7,7 @@ let cfg = {
   heretic: {},
   db: {},
   cache: {},
+  stats: {},
   pugOptions: {
     basedir: "",
   },
@@ -19,5 +20,6 @@ let cfg = {
 const cache = {};
 const heretic = {};
 const db = {};
+const stats = {};
 
-module.exports = { cfg, cache, db, heretic };
+module.exports = { cfg, cache, db, heretic, stats };

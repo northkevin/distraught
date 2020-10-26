@@ -1,11 +1,12 @@
 // @flow
 const { merge, each, keys, omit } = require("lodash");
 
-let { db, heretic, cache, cfg } = require("./config");
+let { db, heretic, cache, cfg, stats } = require("./config");
 
 const addHeretic = require("./heretic").addHeretic;
 const addCache = require("./cache").addCache;
 const addDBConnection = require("./db").addDBConnection;
+const addStatsD = require("./statsd").addStatsDConnection;
 
 type Config = {
   pugOptions?: {
@@ -18,6 +19,7 @@ type Config = {
   cache?: Object,
   db?: Object,
   heretic?: Object,
+  stats?: Object,
   captureUncaught?: boolean,
   captureUnhandled?: boolean,
   ignoredStackTraceLines?: Array<string>,
@@ -49,6 +51,12 @@ function init(config: Config = {}): void {
   if (cfg.heretic) {
     each(omit(cfg.heretic, keys(heretic)), (options, name) =>
       addHeretic(name, options, heretic, db)
+    );
+  }
+
+  if (cfg.stats) {
+    each(omit(cfg.stats, keys(stats)), (options, name) =>
+      addStatsD(name, options, stats)
     );
   }
 }
