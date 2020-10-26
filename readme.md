@@ -316,6 +316,30 @@ The below example will remove `all-users` from the cache
   cache.default.invalidate('all-users');
 ```
 
+## StatsD
+
+By default this connects to 127.0.0.1 on port 8125
+
+This adds an instance manager for [hot-shots](https://www.npmjs.com/package/hot-shots)
+
+```javascript
+const d = require('distraught');
+d.init({
+  db: {{
+    localserver: { prefix: "yourprefix." },
+  }}
+});
+```
+
+Once initialized you can use various statsd calls.  See hot-shots docs for full API reference.
+
+```javascript
+const d = require('distraught');
+
+d.stats.localserver.gauge('gauge_metric', 100);
+d.stats.localserver.increment('counter_metric');
+```
+
 ### Thanks
 
 Thanks to [Hackathon Starter](https://github.com/sahat/hackathon-starter) for a lot of inspiration
