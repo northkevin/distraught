@@ -325,9 +325,9 @@ This adds an instance manager for [hot-shots](https://www.npmjs.com/package/hot-
 ```javascript
 const d = require('distraught');
 d.init({
-  db: {{
+  stats: {
     localserver: { prefix: "yourprefix." },
-  }}
+  }
 });
 ```
 
