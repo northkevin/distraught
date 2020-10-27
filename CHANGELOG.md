@@ -1,3 +1,10 @@
+## [v5.2.0]
+> Sept 17, 2020
+
+### Features
+
+- Adds support for StatsD (see readme for setup)
+
 ## [v5.1.1]
 > Sept 17, 2020
 
