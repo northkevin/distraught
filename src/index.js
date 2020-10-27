@@ -33,7 +33,7 @@ const {
   getProtocolAndHostname,
   getHostname,
   formatCap,
-  formatAddress
+  formatAddress,
 } = require("./lib/transformations");
 const { SECOND, MINUTE, HOUR } = require("./lib/constants");
 const { cronServer } = require("./cron");
@@ -48,7 +48,7 @@ const {
   streamToBuffer,
 } = require("./lib/storage");
 const { renderPug } = require("./lib/template");
-const { cfg, cache, db, heretic } = require("./lib/config");
+const { cfg, cache, db, heretic, stats } = require("./lib/config");
 const { init } = require("./lib/init");
 
 module.exports = {
@@ -94,6 +94,7 @@ module.exports = {
 
   heretic,
   cache,
+  stats,
 
   createSocketConnection,
   emit,
