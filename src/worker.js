@@ -5,7 +5,6 @@ const chalk = require("chalk");
 const { log } = require("./lib/logger");
 const Raven = require("raven");
 
-
 type QueueType = {|
   name: string,
   concurrency?: number,

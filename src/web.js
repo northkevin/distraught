@@ -25,7 +25,6 @@ const YAML = require("yamljs");
 const cfg = require("./lib/config").cfg;
 const logErr = require("./lib/logger").logErr;
 
-
 type Req = {|
   body: Object,
   query: Object,

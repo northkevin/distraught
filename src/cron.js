@@ -61,7 +61,6 @@ const cronServer = function cronServer(options: OptionsType) {
           } catch (err) {
             log(chalk.red.bold(`${cron.name} failed`), err);
             if (process.env.SENTRY_DSN) {
-              
               Raven.captureException(err, {
                 extra: {
                   name: cron.name,
