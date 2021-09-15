@@ -32,11 +32,8 @@ const workerServer = function workerServer(options: OptionsType) {
       environment: process.env.NODE_ENV,
       captureUnhandledRejections: true,
       tags:{
-        identifier: {
-          package: packageDotJson.name,
-          module: "cron",
-          version: packageDotJson.version
-        }
+        jsPackage: "BACKEND",
+        jsModule: "worker"
       }
     }).install();
   }

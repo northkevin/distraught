@@ -125,11 +125,8 @@ const httpServer = function httpServer(options: OptionsType) {
       environment: NODE_ENV,
       captureUnhandledRejections: true,
       tags:{
-        identifier: {
-          package: packageDotJson.name,
-          module: "web",
-          version: packageDotJson.version
-        }
+        jsPackage: "BACKEND",
+        jsModule: "web"
       }
     }).install();
     app.use(Raven.requestHandler());

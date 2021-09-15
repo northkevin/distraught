@@ -29,11 +29,8 @@ const cronServer = function cronServer(options: OptionsType) {
       autoBreadcrumbs: true,
       environment: process.env.NODE_ENV,
       tags:{
-        identifier: {
-          package: packageDotJson.name,
-          module: "cron",
-          version: packageDotJson.version
-        }
+        jsPackage: "BACKEND",
+        jsModule: "cron"
       }
     }).install();
   }
