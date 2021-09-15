@@ -50,6 +50,7 @@ const {
 const { renderPug } = require("./lib/template");
 const { cfg, cache, db, heretic, stats } = require("./lib/config");
 const { init } = require("./lib/init");
+const raven = require("raven")
 
 module.exports = {
   cronServer,
@@ -119,4 +120,6 @@ module.exports = {
   SECOND,
   MINUTE,
   HOUR,
+
+  raven
 };

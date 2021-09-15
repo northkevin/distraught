@@ -4,6 +4,7 @@ let Heretic;
 const chalk = require("chalk");
 const { log } = require("./lib/logger");
 const Raven = require("raven");
+const packageDotJson = require("../package.json")
 
 type QueueType = {|
   name: string,
@@ -30,6 +31,13 @@ const workerServer = function workerServer(options: OptionsType) {
       autoBreadcrumbs: true,
       environment: process.env.NODE_ENV,
       captureUnhandledRejections: true,
+      tags:{
+        identifier: {
+          package: packageDotJson.name,
+          module: "cron",
+          version: packageDotJson.version
+        }
+      }
     }).install();
   }
 

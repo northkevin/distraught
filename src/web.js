@@ -25,6 +25,8 @@ const YAML = require("yamljs");
 const cfg = require("./lib/config").cfg;
 const logErr = require("./lib/logger").logErr;
 
+const packageDotJson = require("../package.json")
+
 type Req = {|
   body: Object,
   query: Object,
@@ -122,6 +124,13 @@ const httpServer = function httpServer(options: OptionsType) {
       autoBreadcrumbs: true,
       environment: NODE_ENV,
       captureUnhandledRejections: true,
+      tags:{
+        identifier: {
+          package: packageDotJson.name,
+          module: "web",
+          version: packageDotJson.version
+        }
+      }
     }).install();
     app.use(Raven.requestHandler());
   }

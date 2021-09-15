@@ -4,6 +4,7 @@ const { log } = require("./lib/logger");
 const chalk = require("chalk");
 let CronJob;
 const Raven = require("raven");
+const packageDotJson = require("../package.json")
 
 type CronType = {
   name: string,
@@ -27,6 +28,13 @@ const cronServer = function cronServer(options: OptionsType) {
     Raven.config(process.env.SENTRY_DSN, {
       autoBreadcrumbs: true,
       environment: process.env.NODE_ENV,
+      tags:{
+        identifier: {
+          package: packageDotJson.name,
+          module: "cron",
+          version: packageDotJson.version
+        }
+      }
     }).install();
   }
 
@@ -57,6 +65,7 @@ const cronServer = function cronServer(options: OptionsType) {
           } catch (err) {
             log(chalk.red.bold(`${cron.name} failed`), err);
             if (process.env.SENTRY_DSN) {
+              
               Raven.captureException(err, {
                 extra: {
                   name: cron.name,
