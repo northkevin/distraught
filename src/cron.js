@@ -4,7 +4,6 @@ const { log } = require("./lib/logger");
 const chalk = require("chalk");
 let CronJob;
 const Raven = require("raven");
-const packageDotJson = require("../package.json")
 
 type CronType = {
   name: string,

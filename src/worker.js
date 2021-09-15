@@ -4,7 +4,7 @@ let Heretic;
 const chalk = require("chalk");
 const { log } = require("./lib/logger");
 const Raven = require("raven");
-const packageDotJson = require("../package.json")
+
 
 type QueueType = {|
   name: string,
