@@ -122,10 +122,6 @@ const httpServer = function httpServer(options: OptionsType) {
       autoBreadcrumbs: true,
       environment: NODE_ENV,
       captureUnhandledRejections: true,
-      tags:{
-        jsPackage: "BACKEND",
-        jsModule: "web"
-      }
     }).install();
     app.use(Raven.requestHandler());
   }

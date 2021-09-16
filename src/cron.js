@@ -27,10 +27,6 @@ const cronServer = function cronServer(options: OptionsType) {
     Raven.config(process.env.SENTRY_DSN, {
       autoBreadcrumbs: true,
       environment: process.env.NODE_ENV,
-      tags:{
-        jsPackage: "BACKEND",
-        jsModule: "cron"
-      }
     }).install();
   }
 

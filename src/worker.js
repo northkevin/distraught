@@ -30,10 +30,6 @@ const workerServer = function workerServer(options: OptionsType) {
       autoBreadcrumbs: true,
       environment: process.env.NODE_ENV,
       captureUnhandledRejections: true,
-      tags:{
-        jsPackage: "BACKEND",
-        jsModule: "worker"
-      }
     }).install();
   }
 
